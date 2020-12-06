@@ -16,6 +16,8 @@ public class Test {
 	{
 		//@SohelTharani-616
 		System.out.println("I am testing the project initially.");
+		//@SohelTharani-616
+		System.out.println("I am committing a push");
 
 	}
 
