@@ -14,7 +14,13 @@ public class BankingSystem {
 	 */
 	public static void main(String[] args) 
 	{
+	/*	MainPage mainPageObject = new MainPage();
+		mainPageObject.mainPage();
+		*/
 		
+	/*	Login loginObject = new Login();
+		loginObject.loginPage();
+		*/
 
 	}
 
