@@ -116,7 +116,7 @@ public class Bank
 		String clientId = JOptionPane.showInputDialog(null, "Add Account for client \n"
 				+ "Enter a client id:");
 		
-		Client c =checkClientExist(clientId);
+		//Client c =checkClientExist(clientId);
 		if(c!=null) {
 			accountCreation(c);
 		}else {
@@ -133,11 +133,11 @@ public class Bank
 		String clientName = JOptionPane.showInputDialog(null, "Enter a client:");	
 		String password = JOptionPane.showInputDialog(null, "Enter a Password:");
 		
-		Client client = new Client();
+		/*Client client = new Client();
 		client.setPassword(password);
 		client.setClientId(++Client.count + "");
 		clientList.add(client);		
 		accountCreation(client);
-		
+		*/
 	}
 	
