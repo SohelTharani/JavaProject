@@ -142,7 +142,7 @@ public class Account  implements Serializable
 		
 		
 	}
-	// Returning account type and account number
+	// Returning account types and account number
 	public static int getCount() {
 		return count;
 	}
