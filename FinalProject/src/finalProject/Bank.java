@@ -9,7 +9,7 @@ import java.util.Scanner;
 import javax.swing.*;  
 
 /**
- * @author Sohel Tharani - 616
+ * @author Sohel Tharani - 616, Ahmed Raza - 520
  *
  */
 
