@@ -502,7 +502,7 @@ public class Bank
 		
 		public static void addAccountForClient() {
 			
-			// HariniSivakumar-495
+			//@HariniSivakumar-495
 			String clientId = JOptionPane.showInputDialog(null, "Add Account for client \n"
 					+ "Enter a client id:");
 			
@@ -513,5 +513,23 @@ public class Bank
 				JOptionPane.showMessageDialog(null, "Client ID doesn't exist");
 			}
 			
+		}
+		
+		//@AhmedRaza520 
+		//Check Client existence in the clientList
+		static boolean checkClientExist(String clientId, String password) 
+		{	
+			boolean exist = false;
+			try {
+					for(Client ct :clientList) 
+					{
+						if(ct.getClientId().equals(clientId) && ct.getPassword().equals(password) ) 
+						{
+								exist =true;
+						}
+					}
+				}catch (Exception e) {
+					}
+					return exist;
 		}
 }
