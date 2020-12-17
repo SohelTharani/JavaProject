@@ -224,7 +224,10 @@ public class Bank
 		
 		//Create  new client
 		Client client = new Client();
-			//to add client
+		client.setPassword(password);				//Set password for new client
+		client.setClientId(++Client.count + "");	//Provide client ID
+		clientList.add(client);						//Insert client in the list
+		accountCreation(client);					//Create account by asking more personal details
 			
 	}
 	
@@ -403,5 +406,79 @@ public class Bank
 				}
 				else JOptionPane.showMessageDialog(null, "Incorrect Password");
 			}
-		
+			
+		//@SohelTharani616
+		private static void accountCreation(Client client) 
+		{
+			String 	accType = JOptionPane.showInputDialog(null, "What type of Account do you want to create?\nPress 1 for Saving Account"
+															+ "\nPress 2 for Business Account" + "\nPress 3 for Joint Account");
+			int aT = Integer.parseInt(accType);
+			
+			double balance=0; //Initialize Balance
+			
+			String firstName = JOptionPane.showInputDialog(null, "Enter Your First Name:");
+			
+			String lastName = JOptionPane.showInputDialog(null, "Enter Your Last Name:");
+			String AccNumS, b;
+			
+			
+			Account ac = new Account();
+			ac.setfName(firstName);
+			ac.setlName(lastName);
+			ac.setAccNo(++Account.count );
+			switch(aT)
+			{
+			case 1: 
+					ac.setType("Saving Account");	
+			
+					String gender = JOptionPane.showInputDialog(null, "Enter your Gender:\nPress 1 for Male\nPress 2 for Female\n Press 3 for Others");
+					int g = Integer.parseInt(gender);
+					if (g==1)
+						ac.setGender("Male"); 
+					else if (g==2)
+						ac.setGender("Female"); 
+					else if (g==3)
+						ac.setGender("Others"); 
+					else JOptionPane.showMessageDialog(null, "Invalid Input");
+					
+					String age = JOptionPane.showInputDialog(null, "Enter your Age:");
+					ac.setAge(age); 
+					
+					String bal = JOptionPane.showInputDialog(null, "Enter your inital balance:");
+					ac.setBalance(Double.parseDouble(bal));
+					ls.add(ac);
+					client.getAccounts().add(ac);
+					BankUtility.saveClientToFile(clientList);
+					break;
+				case 2: 
+					ac.setType("Business Account");	
+					String orgName = JOptionPane.showInputDialog(null, "Enter your Organization Name:");
+					ac.setOrgName(orgName); 
+					String bal1 = JOptionPane.showInputDialog(null, "Enter your inital balance:");
+					ac.setBalance(Double.parseDouble(bal1));
+					ls.add(ac);
+					client.getAccounts().add(ac);
+					BankUtility.saveClientToFile(clientList);
+					break;
+				case 3: 
+					ac.setType("Joint Account");	
+					String age1 = JOptionPane.showInputDialog(null, "Enter your Age:");
+					ac.setAge(age1); 
+					String jointAccName = JOptionPane.showInputDialog(null, "Enter Joint-Account Holder's Full Name:");
+					ac.setJointName(jointAccName);
+					String jointAge = JOptionPane.showInputDialog(null, "Enter Joint-Account Holder's Age:");
+					ac.setAge2(jointAge);
+					String bal2 = JOptionPane.showInputDialog(null, "Enter your inital balance:");
+					ac.setBalance(Double.parseDouble(bal2));
+					ls.add(ac);
+					client.getAccounts().add(ac);
+					BankUtility.saveClientToFile(clientList);
+					break;
+
+				default: JOptionPane.showMessageDialog(null, "Invalid Input");
+			}
+					
+			JOptionPane.showMessageDialog(null, "Client and Acccount Created Successfully \n Client ID ::" + client.getClientId()
+				+ " \n Account No :: "+ac.getAccNo());
+		}
 }
