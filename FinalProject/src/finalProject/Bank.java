@@ -33,7 +33,7 @@ public class Bank
 	static void menu() throws IOException 
 	{
 		//Collect what user want to do from given options
-		String userInput = JOptionPane.showInputDialog(null, "Press 1 for Customer Login \n Press 2 for Banker Login");
+		String userInput = JOptionPane.showInputDialog(null, "Press 1 for Customer Login \n Press 2 for Banker Login \n Press 3 for Registration");
 		int option = Integer.parseInt(userInput);
 		
 		switch(option)
