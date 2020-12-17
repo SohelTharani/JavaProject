@@ -3,18 +3,11 @@
  */
 package finalProject;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
- * @author Sohel Tharani - 616
+ * @author HariniSivakumar-495
  *
  */
-public class Client {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-}
