@@ -229,179 +229,179 @@ public class Bank
 	}
 	
 	//@AhmedRaza520
-		//This method will provide the Account lists
-		private static void listAccount() 
-		{
-			System.out.println("Account no  \t Account Name");
-			for(Account ac : ls)		//ls is the ArrayList of Account
+			//This method will provide the Account lists
+			private static void listAccount() 
 			{
-				System.out.println(ac.getAccNo() + "\t" +ac.getfName() +" " + ac.getlName());
-			}
-		}
-		
-		//@AhmedRaza520
-		//This method will check whether account exists or not
-		private static void accountActivity() throws IOException 
-		{
-			
-			String clientId = JOptionPane.showInputDialog(null, "Enter Your ClientId:");
-			String password = JOptionPane.showInputDialog(null, "Enter Your Password:");
-				
-			if(checkClientExist(clientId,password)) 
-			{
-					
-				String accountNo = JOptionPane.showInputDialog(null, "Please enter the account no to operate :");
-				if(checkAccoutnExist(accountNo)) 
+				System.out.println("Account no  \t Account Name");
+				for(Account ac : ls)		//ls is the ArrayList of Account
 				{
-					subMenu(clientId,accountNo);
+					System.out.println(ac.getAccNo() + "\t" +ac.getfName() +" " + ac.getlName());
+				}
+			}
+			
+			//@AhmedRaza520
+			//This method will check whether account exists or not
+			private static void accountActivity() throws IOException 
+			{
+				
+				String clientId = JOptionPane.showInputDialog(null, "Enter Your ClientId:");
+				String password = JOptionPane.showInputDialog(null, "Enter Your Password:");
+					
+				if(checkClientExist(clientId,password)) 
+				{
+						
+					String accountNo = JOptionPane.showInputDialog(null, "Please enter the account no to operate :");
+					if(checkAccoutnExist(accountNo)) 
+					{
+						subMenu(clientId,accountNo);
+					} 
+					else 
+					{
+						JOptionPane.showMessageDialog(null, "Invalid Account No");
+					}	
 				} 
 				else 
 				{
-					JOptionPane.showMessageDialog(null, "Invalid Account No");
-				}	
-			} 
-			else 
-			{
-				JOptionPane.showMessageDialog(null, "Username password not exist");
-			}
-		}
-			
-		//@AhmedRaza520
-		//This method will pay all the bills
-		private static void payBills(Account acc) 
-		{
-			System.out.println("Please enter the amount to pay bills. ");
-			String amt = JOptionPane.showInputDialog(null, "Please enter the amount to pay bills. ");
-			double amount = Double.parseDouble(amt);
-			
-			//This if-else will check whether the account have sufficient balance or not
-			
-			if(acc.getBalance() > amount) {
-				acc.setBalance(acc.getBalance() -amount);		// Deduct entered account
-				
-				JOptionPane.showMessageDialog(null, "Payment done \n  New Balance ::\n" + acc.getBalance());
-			} 
-			else 
-			{
-				JOptionPane.showInputDialog(null, "Low balance  can't be allowed to pay");
-			}
-				
-		}
-			
-		//@AhmedRaza520
-		//This method will withdraw money with 10% of Transaction charges
-		private static void withdrawMoney(Account acc) 
-		{
-			System.out.println("Please enter the amount to withdraw. ");
-				
-			//Ask user for input
-			String amt = JOptionPane.showInputDialog(null, "Please enter the amount to withdraw. ");
-			double amount = Double.parseDouble(amt);		//Convert String to Double
-				
-			//Check if balance is available or not
-			if(acc.getBalance() > (amount +amount*0.10) ) 
-			{
-				acc.setBalance(acc.getBalance() -amount -amount*0.10);		//10% Transaction Charges
-			
-				JOptionPane.showMessageDialog(null, "Withdraw done \n "+"New Balance ::" + acc.getBalance() + "Transaction charges :: " + amount*0.10);
-			} 
-			else 
-			{
-				JOptionPane.showMessageDialog(null, "Low balance  can't be allowed to withdraw");
-			}
-		}
-			
-		//@AhmedRaza520
-		//This method will displays the account balance
-		private static void printAccountBalance(Account acc) 
-		{
-			JOptionPane.showMessageDialog(null, "Account balance is ::" + acc.getBalance());
-		}
-
-
-
-		//@AhmedRaza520
-		// displays the account details 
-		private static void printAccountDeatil(Account acc) 
-		{		
-				
-			JOptionPane.showMessageDialog(null, acc.toString());
-			
-		}
-
-
-
-		//@AhmedRaza520
-		//This method will display T/F according to the condition  
-		static boolean checkAccoutnExist(String acc) 
-		{
-				
-			boolean exist = false;
-			try {
-				for(Account ac : ls) 
-				{
-					if(ac.getAccNo() == Integer.parseInt(acc)) // checking for account existence
-					{
-						exist =true;
-					}
+					JOptionPane.showMessageDialog(null, "Username password not exist");
 				}
-				}catch (Exception e) {
 			}
-			return exist;
-		}
-			
-		//@AhmedRaza520
-		//This method provide account number
-		static Account getAccount(String accNo) 
-		{		
-			Account acc = null;
-			try 
-			{
-				for(Account ac : ls) 
-				{
-					if(ac.getAccNo() == Integer.parseInt(accNo)) 
-					{
-						acc =ac;
-					}
-				}
-			}catch (Exception e) 
-			{
-			}
-			return acc;
-		}
-			
-		//@AhmedRaza520
-		//This method is for the bank representative to log in to do banking
-		public static void BankerLogin() throws IOException
-		{
-			String userName = JOptionPane.showInputDialog(null, "Enter Your Username:");
 				
-			String password = JOptionPane.showInputDialog(null, "Enter Your Password:");
-			
-			//Banker Username & password is Admin and Admin respectively
-			//It will check whether the username and password is correct or not.
-			if ("Admin".equals(password))
+			//@AhmedRaza520
+			//This method will pay all the bills
+			private static void payBills(Account acc) 
 			{
-				JOptionPane.showMessageDialog(null, "Login Successfull");
-				String choice = JOptionPane.showInputDialog(null, "1. To create Client account \n 2. Add account for existing client  "
-							+  "\n 3.To Logout \n Enter your choice:");
-				if(choice .equals("1")) 
-				{
-					Registration();
-				}else if (choice.equals("2"))
-				{			
-					addAccountForClient();
+				System.out.println("Please enter the amount to pay bills. ");
+				String amt = JOptionPane.showInputDialog(null, "Please enter the amount to pay bills. ");
+				double amount = Double.parseDouble(amt);
+				
+				//This if-else will check whether the account have sufficient balance or not
+				
+				if(acc.getBalance() > amount) {
+					acc.setBalance(acc.getBalance() -amount);		// Deduct entered account
+					
+					JOptionPane.showMessageDialog(null, "Payment done \n  New Balance ::\n" + acc.getBalance());
 				} 
-						
-				else if (choice.equals("3"))
-				{			
-					JOptionPane.showMessageDialog(null, "Log out Successfull");
+				else 
+				{
+					JOptionPane.showInputDialog(null, "Low balance  can't be allowed to pay");
 				}
-						
-						
-						
+					
 			}
-			else JOptionPane.showMessageDialog(null, "Incorrect Password");
-		}
+				
+			//@AhmedRaza520
+			//This method will withdraw money with 10% of Transaction charges
+			private static void withdrawMoney(Account acc) 
+			{
+				System.out.println("Please enter the amount to withdraw. ");
+					
+				//Ask user for input
+				String amt = JOptionPane.showInputDialog(null, "Please enter the amount to withdraw. ");
+				double amount = Double.parseDouble(amt);		//Convert String to Double
+					
+				//Check if balance is available or not
+				if(acc.getBalance() > (amount +amount*0.10) ) 
+				{
+					acc.setBalance(acc.getBalance() -amount -amount*0.10);		//10% Transaction Charges
+				
+					JOptionPane.showMessageDialog(null, "Withdraw done \n "+"New Balance ::" + acc.getBalance() + "Transaction charges :: " + amount*0.10);
+				} 
+				else 
+				{
+					JOptionPane.showMessageDialog(null, "Low balance  can't be allowed to withdraw");
+				}
+			}
+				
+			//@AhmedRaza520
+			//This method will displays the account balance
+			private static void printAccountBalance(Account acc) 
+			{
+				JOptionPane.showMessageDialog(null, "Account balance is ::" + acc.getBalance());
+			}
+
+
+
+			//@AhmedRaza520
+			// displays the account details 
+			private static void printAccountDeatil(Account acc) 
+			{		
+					
+				JOptionPane.showMessageDialog(null, acc.toString());
+				
+			}
+
+
+
+			//@AhmedRaza520
+			//This method will display T/F according to the condition  
+			static boolean checkAccoutnExist(String acc) 
+			{
+					
+				boolean exist = false;
+				try {
+					for(Account ac : ls) 
+					{
+						if(ac.getAccNo() == Integer.parseInt(acc)) // checking for account existence
+						{
+							exist =true;
+						}
+					}
+					}catch (Exception e) {
+				}
+				return exist;
+			}
+				
+			//@AhmedRaza520
+			//This method provide account number
+			static Account getAccount(String accNo) 
+			{		
+				Account acc = null;
+				try 
+				{
+					for(Account ac : ls) 
+					{
+						if(ac.getAccNo() == Integer.parseInt(accNo)) 
+						{
+							acc =ac;
+						}
+					}
+				}catch (Exception e) 
+				{
+				}
+				return acc;
+			}
+				
+			//@AhmedRaza520
+			//This method is for the bank representative to log in to do banking
+			public static void BankerLogin() throws IOException
+			{
+				String userName = JOptionPane.showInputDialog(null, "Enter Your Username:");
+					
+				String password = JOptionPane.showInputDialog(null, "Enter Your Password:");
+				
+				//Banker Username & password is Admin and Admin respectively
+				//It will check whether the username and password is correct or not.
+				if ("Admin".equals(password))
+				{
+					JOptionPane.showMessageDialog(null, "Login Successfull");
+					String choice = JOptionPane.showInputDialog(null, "1. To create Client account \n 2. Add account for existing client  "
+								+  "\n 3.To Logout \n Enter your choice:");
+					if(choice .equals("1")) 
+					{
+						Registration();
+					}else if (choice.equals("2"))
+					{			
+						addAccountForClient();
+					} 
+							
+					else if (choice.equals("3"))
+					{			
+						JOptionPane.showMessageDialog(null, "Log out Successfull");
+					}
+							
+							
+							
+				}
+				else JOptionPane.showMessageDialog(null, "Incorrect Password");
+			}
 		
 }
