@@ -408,6 +408,7 @@ public class Bank
 			}
 			
 		//@SohelTharani616
+			//This method will ask for more personal details from the user to create an account
 		private static void accountCreation(Client client) 
 		{
 			String 	accType = JOptionPane.showInputDialog(null, "What type of Account do you want to create?\nPress 1 for Saving Account"
@@ -425,7 +426,7 @@ public class Bank
 			Account ac = new Account();
 			ac.setfName(firstName);
 			ac.setlName(lastName);
-			ac.setAccNo(++Account.count );
+			ac.setAccNo(++Account.count );		//Provide unique account number
 			switch(aT)
 			{
 			case 1: 
@@ -448,7 +449,7 @@ public class Bank
 					ac.setBalance(Double.parseDouble(bal));
 					ls.add(ac);
 					client.getAccounts().add(ac);
-					BankUtility.saveClientToFile(clientList);
+					BankUtility.saveClientToFile(clientList);		//Save details to Client's ArrayList
 					break;
 				case 2: 
 					ac.setType("Business Account");	
@@ -458,7 +459,7 @@ public class Bank
 					ac.setBalance(Double.parseDouble(bal1));
 					ls.add(ac);
 					client.getAccounts().add(ac);
-					BankUtility.saveClientToFile(clientList);
+					BankUtility.saveClientToFile(clientList);		//Save details to Client's ArrayList
 					break;
 				case 3: 
 					ac.setType("Joint Account");	
@@ -471,8 +472,8 @@ public class Bank
 					String bal2 = JOptionPane.showInputDialog(null, "Enter your inital balance:");
 					ac.setBalance(Double.parseDouble(bal2));
 					ls.add(ac);
-					client.getAccounts().add(ac);
-					BankUtility.saveClientToFile(clientList);
+					client.getAccounts().add(ac);					
+					BankUtility.saveClientToFile(clientList);		//Save details to Client's ArrayList
 					break;
 
 				default: JOptionPane.showMessageDialog(null, "Invalid Input");
