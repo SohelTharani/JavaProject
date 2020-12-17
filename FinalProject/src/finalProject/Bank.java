@@ -482,5 +482,36 @@ public class Bank
 			JOptionPane.showMessageDialog(null, "Client and Acccount Created Successfully \n Client ID ::" + client.getClientId()
 				+ " \n Account No :: "+ac.getAccNo());
 		}
+		// HariniSivakumar-495
+		static Client checkClientExist(String clientId) {
+			
+			boolean exist = false;
+			Client c = null;
+				try {
+					for(Client ct :clientList) {
+						if(ct.getClientId().equals(clientId))  {
+							c=ct;
+						}
+					}
+				}catch (Exception e) {
+				}
+				return c;
+			}
 		
+		
+		
+		public static void addAccountForClient() {
+			
+			// HariniSivakumar-495
+			String clientId = JOptionPane.showInputDialog(null, "Add Account for client \n"
+					+ "Enter a client id:");
+			
+			Client c =checkClientExist(clientId);
+			if(c!=null) {
+				accountCreation(c);
+			}else {
+				JOptionPane.showMessageDialog(null, "Client ID doesn't exist");
+			}
+			
+		}
 }
