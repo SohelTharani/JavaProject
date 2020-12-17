@@ -426,7 +426,7 @@ public class Bank
 			Account ac = new Account();
 			ac.setfName(firstName);
 			ac.setlName(lastName);
-			ac.setAccNo(++Account.count );		//Provide unique account number
+			ac.setAccNo(Account.count+1 );		//Provide unique account number
 			switch(aT)
 			{
 			case 1: 

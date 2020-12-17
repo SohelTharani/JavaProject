@@ -104,8 +104,10 @@ public class Account  implements Serializable
 	public Integer getAccNo() {
 		return accNo;
 	}
+	//@SohelTharani616 & @AhmedRaza520
+	//Account No. was not providing unique Acc No because accNo was not incremented.
 	public void setAccNo(int accNo) {
-		this.accNo = accNo;
+		this.accNo = accNo+1;
 	}
 	public Account() {
 		// TODO Auto-generated constructor stub
@@ -118,7 +120,7 @@ public class Account  implements Serializable
 		this.lName = lName;
 		this.phoneNo = phoneNo;
 		this.address = address;
-		count ++;
+		count=count+1;
 		this.accNo = count;
 		
 	}
