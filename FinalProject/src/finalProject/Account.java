@@ -104,7 +104,7 @@ public class Account  implements Serializable
 	public Integer getAccNo() {
 		return accNo;
 	}
-	//@SohelTharani616 & @AhmedRaza520
+	
 	//Account No. was not providing unique Acc No because accNo was not incremented.
 	public void setAccNo(int accNo) {
 		this.accNo = accNo+1;
@@ -114,7 +114,7 @@ public class Account  implements Serializable
 	}
 	
 	// For user information
-	//@SohelTharani616
+	
 	public Account(String fName, String lName, String phoneNo, String address, int accNo) {
 		super();
 		this.fName = fName;
