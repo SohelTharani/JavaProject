@@ -135,7 +135,7 @@ public class Bank
 	}
 		
 	//@SohelTharani616
-	//Deposit Money method
+	//Deposit Money function
 	private static void depositMoney(Account acc) 
 	{	
 		//Ask for Deposit Amount
@@ -144,15 +144,15 @@ public class Bank
 		String amt = JOptionPane.showInputDialog(null, "Please enter the amount to deposit. ");
 		double amount = Double.parseDouble(amt);
 		acc.setBalance(acc.getBalance() +amount);
-		System.out.println("Deposit done");
-		System.out.println("New Balance ::" + acc.getBalance());
+		//System.out.println("Deposit done");
+		//System.out.println("New Balance ::" + acc.getBalance());
 		JOptionPane.showMessageDialog(null, "Deposite done \n "+"New Balance ::" + acc.getBalance());
 			
 	}
 
 
 	//@SohelTharani616
-	//This method will transfer money to another account
+	//This function will transfer money to another account
 	private static void transferMoney(Account acc) 
 	{
 		// TODO Auto-generated method stub
@@ -212,7 +212,7 @@ public class Bank
 	}
 		
 	//@SohelTharani616
-	//This method is for registering a new user
+	//This function is for registering a new user
 	public static void Registration() throws IOException
 	{
 		
@@ -295,7 +295,6 @@ public class Bank
 			//This method will withdraw money with 10% of Transaction charges
 			private static void withdrawMoney(Account acc) 
 			{
-				System.out.println("Please enter the amount to withdraw. ");
 					
 				//Ask user for input
 				String amt = JOptionPane.showInputDialog(null, "Please enter the amount to withdraw. ");
@@ -408,7 +407,7 @@ public class Bank
 			}
 			
 		//@SohelTharani616
-			//This method will ask for more personal details from the user to create an account
+			//This functions will ask for more personal details from the user to create an account
 		private static void accountCreation(Client client) 
 		{
 			String 	accType = JOptionPane.showInputDialog(null, "What type of Account do you want to create?\nPress 1 for Saving Account"
